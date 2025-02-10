@@ -22,7 +22,7 @@ jobs:
       - name: What is here
         run: (ls)
       - name: get dependencies
-        run: (Rscript -e "BiocManager::install(basename(getwd()), dependencies=TRUE)")
+        run: (Rscript -e "BiocManager::install(c(basename(getwd()), 'rmarkdown'), dependencies=TRUE)")
       - name: Setup pandoc from r-lib
         uses: r-lib/actions/setup-pandoc@v2
         with:
