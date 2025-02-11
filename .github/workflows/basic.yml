@@ -31,5 +31,7 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
         with:
           pandoc-version: '3.1.11' # The pandoc vers
+      - name: additional latex packages
+        run: (Rscript -e "tinytex::tlmgr_install('grfext')")
       - name: Run rcmdcheck
         run: (Rscript -e "rcmdcheck::rcmdcheck()")
