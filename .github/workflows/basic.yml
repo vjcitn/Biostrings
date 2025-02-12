@@ -64,8 +64,8 @@ jobs:
       - name: additional latex packages
         run: (Rscript -e "tinytex::tlmgr_install('grfext')")
       - name: additional packages not picked up with above installation
-        run: (Rscript -e "BiocManager::install(c('pwalign', 'hgu95av2probe', 'hgu95av2cdf', 'drosophila2probe'))"
+        run: (Rscript -e "BiocManager::install(c('pwalign', 'hgu95av2probe', 'hgu95av2cdf', 'drosophila2probe'))")
       - name: more packages not picked up with above installation
-        run: (Rscript -e "BiocManager::install(c('hgu133aprobe'))"
+        run: (Rscript -e "BiocManager::install(c('hgu133aprobe'))")
       - name: do r cmd check
         run: (Rscript -e "rcmdcheck::rcmdcheck()")
