@@ -43,6 +43,8 @@ jobs:
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
       - name: Assess R version
         run: (Rscript -e version)
+      - name: Assess bioc version
+        run: (Rscript -e "BiocManager::version()")
       - name: show path to R
         run: (which R)
       - name: Where am I
@@ -61,5 +63,9 @@ jobs:
         run: (Rscript -e 'print(sort(rownames(installed.packages())))')
       - name: additional latex packages
         run: (Rscript -e "tinytex::tlmgr_install('grfext')")
+      - name: additional packages not picked up with above installation
+        run: (Rscript -e "BiocManager::install(c('pwalign', 'hgu95av2probe', 'hgu95av2cdf', 'drosophila2probe'))"
+      - name: more packages not picked up with above installation
+        run: (Rscript -e "BiocManager::install(c('hgu133aprobe'))"
       - name: do r cmd check
         run: (Rscript -e "rcmdcheck::rcmdcheck()")
