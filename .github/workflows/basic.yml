@@ -69,5 +69,10 @@ jobs:
         run: (Rscript -e "BiocManager::install(c('pwalign', 'hgu95av2probe', 'hgu95av2cdf', 'drosophila2probe'))")
       - name: more packages not picked up with above installation
         run: (Rscript -e "BiocManager::install(c('hgu133aprobe', 'affy', 'affydata'))")
+      - name: more pkgs
+        run: |
+          (Rscript -e "BiocManager::install(c('BSgenome', 'BSgenome.Celegans.UCSC.ce2',
+            'BSgenome.Dmelanogaster.UCSC.dm3', 'BSgenome.Hsapiens.UCSC.hg18',
+            'GenomicFeatures', 'testthat', 'covr'), Ncpus=2)")
       - name: do r cmd check
         run: (Rscript -e "rcmdcheck::rcmdcheck()")
