@@ -29,6 +29,8 @@ name: CI4bioc320
 on:
   push:
     branches: [ REL_3_20_ISO ]
+  env:
+    _R_CHECK_FORCE_SUGGESTS_: 'FALSE'
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
